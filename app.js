@@ -54,11 +54,11 @@ Global Var's
 =========================*/
 //layout of grid
 const map = [
-    ['-','-','-','-','-','-'],
-    ['-',' ',' ',' ',' ','-'],
-    ['-',' ','-','-',' ','-'],
-    ['-',' ',' ',' ',' ','-'],
-    ['-','-','-','-','-','-'],
+    ['-','-','-','-','-','-','-'],
+    ['-',' ',' ',' ',' ',' ','-'],
+    ['-',' ','-',' ','-',' ','-'],
+    ['-',' ',' ',' ',' ',' ','-'],
+    ['-','-','-','-','-','-','-'],
 ]
 
 const boundaries = []
@@ -75,16 +75,16 @@ const player = new Player({
 })
 
 const keys = {
-    w: {
+    U: {
         pressed:false 
     },
-    a:{
+    L:{
         pressed:false
     },
-    s:{
+    D:{
         pressed:false
     },
-    d:{
+    R:{
         pressed:false
     }
 }
@@ -109,26 +109,87 @@ map.forEach((row, i) => {
         }
     })
 })
+
+
+function circleCollidesWithRectangle({
+    circle, 
+    rectangle 
+})
+{
+    return (circle.position.y - circle.radius + circle.velocity.y <= rectangle.position.y + rectangle.height && 
+            circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x && circle.position.x - circle.radius + circle.velocity.x <=rectangle.position.x + rectangle.width && circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y
+            )
+}
+
 //animation loop
 function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0,canvas.width, canvas.height)
-    boundaries.forEach((boundary) =>{
-        boundary.draw()
-    })
-    player.update()
-    player.velocity.y=0
-    player.velocity.x=0
 
-    if(keys.w.pressed && lastKey === 'w'){
-        player.velocity.y = -5
-    }else if(keys.a.pressed && lastKey ==="a"){
+    if(keys.U.pressed && lastKey === 'ArrowUp'){
+        for(let i=0; i < boundaries.length; i++) {
+            const boundary = boundaries[i]
+            if 
+                (circleCollidesWithRectangle({
+                    circle: {
+                    ...player,
+                    velocity: {
+                        x:0,
+                        y:-5
+                    }
+                }, 
+                rectangle: boundary
+                })
+            ) {
+                player.velocity.y = 0
+                break
+            } else {
+                player.velocity.y = -5 
+            }
+        }
+    }else if(keys.L.pressed && lastKey ==="ArrowLeft"){
         player.velocity.x =-5
-    }else if(keys.s.pressed && lastKey ==="s"){
+    }else if(keys.D.pressed && lastKey ==="ArrowDown"){
         player.velocity.y =5
-    }else if(keys.d.pressed && lastKey === "d"){
+        for(let i=0; i < boundaries.length; i++) {
+            const boundary = boundaries[i]
+                if 
+                    (circleCollidesWithRectangle({
+                        circle:{
+                        ...player,
+                        velocity:{
+                            x:0,
+                            y:-5
+                            }
+                        }, 
+                    rectangle: boundary
+                    })
+                ) {
+                    player.velocity.y = 0
+                    break
+                } else {
+                    player.velocity.y = -5 
+                }
+    }else if(keys.R.pressed && lastKey === "ArrowRight"){
         player.velocity.x = 5
 }
+    boundaries.forEach((boundary) =>{
+        boundary.draw()
+        if (
+            circleCollidesWithRectangle({
+                circle: player, 
+                rectangle: boundary,
+            })
+        ){
+            player.velocity.y=0
+            player.velocity.x=0
+        }
+    })
+    player.update()
+    // player.velocity.y=0
+    // player.velocity.x=0
+
+
 }
 
 animate()
@@ -143,46 +204,46 @@ Event Listerners
 =========================*/
 window.addEventListener('keydown', ({key}) => {
         switch(key){
-            case "w": keys.w.pressed = true
-            lastKey ="w"
+            case "ArrowUp": keys.U.pressed = true
+            lastKey ="ArrowUp"
             break
         }
         switch(key){
-            case "a": keys.a.pressed =true
-            lastKey = "a"
+            case "ArrowLeft": keys.L.pressed =true
+            lastKey = "ArrowLeft"
             break
         }
         switch(key){
-            case "s": keys.s.pressed = true
-            lastKey ="s"
+            case "ArrowDown": keys.D.pressed = true
+            lastKey ="ArrowDown"
             break
         }
         switch(key){
-            case "d": keys.d.pressed=true
-            lastKey="d"
+            case "ArrowRight": keys.R.pressed=true
+            lastKey="ArrowRight"
             break
         }
-    console.log(keys.d.pressed)
-    console.log(keys.s.pressed)
+    console.log(keys.R.pressed)
+    console.log(keys.D.pressed)
     })
 
     window.addEventListener('keyup', ({key}) => {
         switch(key){
-            case "w": keys.w.pressed=false
+            case "ArrowUp": keys.U.pressed=false
             break
         }
         switch(key){
-            case "a":keys.a.pressed=false
+            case "ArrowLeft":keys.L.pressed=false
             break
         }
         switch(key){
-            case "s": keys.s.pressed=false
+            case "ArrowDown": keys.D.pressed=false
             break
         }
         switch(key){
-            case "d": keys.d.pressed=false
+            case "ArrowRight": keys.R.pressed=false
             break
         }
-        console.log(keys.d.pressed)
-        console.log(keys.s.pressed)
+        console.log(keys.R.pressed)
+        console.log(keys.D.pressed)
 })
