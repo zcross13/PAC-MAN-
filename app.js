@@ -15,14 +15,14 @@ CREATING CLASSES
 class Boundary {
     static width = 40 
     static height = 40
-    constructor({position}){//bracket to pass it through a object
+    constructor({position, image}){//bracket to pass it through a object
         this.position = position //instead of a set value we give it changeable value  
         this.width = 40 //set value 
         this.height = 40 
+        this.image = image 
     }
     draw(){//drawing out boundary 
-        c.fillStyle ='blue'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+        c.drawImage(this.image, this.position.x, this.position.y)
     }
 }
 
@@ -53,16 +53,6 @@ class Player {
 Global Var's
 =========================*/
 //layout of grid
-const map = [
-    ['-','-','-','-','-','-','-'],
-    ['-',' ',' ',' ',' ',' ','-'],
-    ['-',' ','-',' ','-',' ','-'],
-    ['-',' ',' ',' ',' ',' ','-'],
-    ['-','-','-','-','-','-','-'],
-]
-
-const boundaries = []
-
 const player = new Player({
     position:{
         x:Boundary.width + Boundary.width/2, //move along x axis
@@ -90,11 +80,31 @@ const keys = {
 }
 
 let lastKey = ""
+
+const map = [
+    ['-','-','-','-','-','-','-'],
+    ['|',' ',' ',' ',' ',' ','|'],
+    ['|',' ','-',' ','-',' ','|'],
+    ['|',' ',' ',' ',' ',' ','|'],
+    ['|',' ','-',' ','-',' ','|'],
+    ['|',' ',' ',' ',' ',' ','|'],
+    ['-','-','-','-','-','-','-'],
+]
+
+
+const boundaries = []
+
+
 /* ======================
 Functions 
 =========================*/
-
-//Loop through each row
+//create img 
+function createImage(src){
+    const image = new Image()
+    image.src= src 
+    return image
+}
+    //Loop through each row
 map.forEach((row, i) => {
     row.forEach((symbol, j) => { //for each symbol 
         switch(symbol){ 
@@ -103,91 +113,123 @@ map.forEach((row, i) => {
                     position:{
                         x: Boundary.width * j, //move the square to the right
                         y: Boundary.height * i  //move the square down
-                    }
+                    }, 
+                    image: createImage("./images/pipeHorizontal.png")
                 }))
-                break //break the function 
+                break 
+                case '|': 
+                boundaries.push(new Boundary({ 
+                    position:{
+                        x: Boundary.width * j,
+                        y: Boundary.height * i  
+                    }, 
+                    image:  createImage("./images/pipeVertical.png")
+                }))
+                break 
         }
     })
 })
-
 
 function circleCollidesWithRectangle({
     circle, 
     rectangle 
 })
-{
-    return (circle.position.y - circle.radius + circle.velocity.y <= rectangle.position.y + rectangle.height && 
+    {
+    return (
+        circle.position.y - circle.radius + circle.velocity.y <= rectangle.position.y + rectangle.height && 
             circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x && circle.position.x - circle.radius + circle.velocity.x <=rectangle.position.x + rectangle.width && circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y
             )
 }
-
 //animation loop
 function animate(){
     requestAnimationFrame(animate)
     c.clearRect(0,0,canvas.width, canvas.height)
-
-    if(keys.U.pressed && lastKey === 'ArrowUp'){
-        for(let i=0; i < boundaries.length; i++) {
+    if(keys.U.pressed && lastKey === 'ArrowUp') {
+        for(let i=0; i < boundaries.length; i++){
+            const boundary = boundaries[i]
+            if (circleCollidesWithRectangle({
+            circle:{...player, velocity:{
+            x:0, 
+            y:-5
+        } }, 
+            rectangle: boundary
+        })
+        ) {
+            player.velocity.y = 0
+            break
+        }else{
+            player.velocity.y =-5
+        }
+    }
+    }else if(keys.L.pressed && lastKey ==="ArrowLeft"){
+        for(let i=0; i < boundaries.length; i++){
+            const boundary = boundaries[i]
+            if (circleCollidesWithRectangle({
+            circle:{...player, velocity:{
+            x:-5, 
+            y:0
+        } }, 
+            rectangle: boundary
+        })
+        ) {
+            player.velocity.x = 0
+            break
+        }else{
+            player.velocity.x =-5
+        }
+    }
+    }else if(keys.D.pressed && lastKey ==="ArrowDown"){
+        for(let i=0; i < boundaries.length; i++){
             const boundary = boundaries[i]
             if 
-                (circleCollidesWithRectangle({
-                    circle: {
-                    ...player,
-                    velocity: {
-                        x:0,
-                        y:-5
-                    }
-                }, 
-                rectangle: boundary
-                })
-            ) {
-                player.velocity.y = 0
-                break
-            } else {
-                player.velocity.y = -5 
-            }
+            (circleCollidesWithRectangle({
+            circle:{
+                ...player, 
+                velocity: {
+            x:0, 
+            y:5
+        } }, 
+            rectangle: boundary
+        })
+        ) {
+            player.velocity.y = 0
+            break
+        }else{
+            player.velocity.y =5
         }
-    }else if(keys.L.pressed && lastKey ==="ArrowLeft"){
-        player.velocity.x =-5
-    }else if(keys.D.pressed && lastKey ==="ArrowDown"){
-        player.velocity.y =5
-        for(let i=0; i < boundaries.length; i++) {
-            const boundary = boundaries[i]
-                if 
-                    (circleCollidesWithRectangle({
-                        circle:{
-                        ...player,
-                        velocity:{
-                            x:0,
-                            y:-5
-                            }
-                        }, 
-                    rectangle: boundary
-                    })
-                ) {
-                    player.velocity.y = 0
-                    break
-                } else {
-                    player.velocity.y = -5 
-                }
+    }
     }else if(keys.R.pressed && lastKey === "ArrowRight"){
-        player.velocity.x = 5
+        for(let i=0; i < boundaries.length; i++){
+            const boundary = boundaries[i]
+            if (circleCollidesWithRectangle({
+            circle:{...player, velocity:{
+            x:5, 
+            y:0
+        } }, 
+            rectangle: boundary
+        })
+        ) {
+            player.velocity.x = 0
+            break
+        }else{
+            player.velocity.x =5
+        }
+    }
 }
     boundaries.forEach((boundary) =>{
         boundary.draw()
         if (
             circleCollidesWithRectangle({
                 circle: player, 
-                rectangle: boundary,
+                rectangle: boundary
             })
-        ){
+        )   {
+            console.log('we are colliding')
             player.velocity.y=0
             player.velocity.x=0
-        }
+        }   
     })
     player.update()
-    // player.velocity.y=0
-    // player.velocity.x=0
 
 
 }
@@ -225,6 +267,8 @@ window.addEventListener('keydown', ({key}) => {
         }
     console.log(keys.R.pressed)
     console.log(keys.D.pressed)
+    console.log(keys.U.pressed)
+    console.log(keys.L.pressed)
     })
 
     window.addEventListener('keyup', ({key}) => {
