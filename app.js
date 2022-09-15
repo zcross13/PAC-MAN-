@@ -82,13 +82,19 @@ const keys = {
 let lastKey = ""
 
 const map = [
-    ['-','-','-','-','-','-','-'],
-    ['|',' ',' ',' ',' ',' ','|'],
-    ['|',' ','-',' ','-',' ','|'],
-    ['|',' ',' ',' ',' ',' ','|'],
-    ['|',' ','-',' ','-',' ','|'],
-    ['|',' ',' ',' ',' ',' ','|'],
-    ['-','-','-','-','-','-','-'],
+    ['1','-','-','-','-','-','-','-','-','-','2'],
+    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
+    ['|',' ','bl',' ','l','r',' ','l','r',' ','|'],
+    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
+    ['|',' ','t',' ',' ',' ',' ',' ','t',' ','|'],
+    ['|',' ','|',' ',' ',' ',' ',' ','|',' ','|'],
+    ['|',' ','b',' ',' ',' ',' ',' ','b',' ','|'],
+    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
+    ['|',' ','l','r',' ',' ',' ','l','r',' ','|'],
+    ['|',' ',' ',' ',' ','t',' ',' ',' ',' ','|'],
+    ['|',' ','bl',' ','l','^','r',' ','bl',' ','|'],
+    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
+    ['4','-','-','-','-','-','-','-','-','-','3']
 ]
 
 
@@ -126,6 +132,114 @@ map.forEach((row, i) => {
                     image:  createImage("./images/pipeVertical.png")
                 }))
                 break 
+                case '1': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeCorner1.png")
+                }))
+                break
+                case '2': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeCorner2.png")
+                }))
+                break
+                case '3': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeCorner3.png")
+                }))
+                break
+                case '4': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeCorner4.png")
+                }))
+                break
+                case 'bl': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/block.png")
+                }))
+                break
+                case 'r': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/capRight.png")
+                }))
+                break
+                case 'l': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/capLeft.png")
+                }))
+                break
+                case '+': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeCross.png")
+                }))
+                break
+                case 't': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/capTop.png")
+                }))
+                break
+                case 'b': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/capBottom.png")
+                }))
+                break
+                case '^': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeConnectorTop.png")
+                }))
+                break
+                case '<': //when you see this symbol run this function
+                boundaries.push(new Boundary({ //create a new square
+                    position:{
+                        x: Boundary.width * j, //move the square to the right
+                        y: Boundary.height * i  //move the square down
+                    }, 
+                    image: createImage("./images/pipeConnectorRight.png")
+                }))
+                break
         }
     })
 })
