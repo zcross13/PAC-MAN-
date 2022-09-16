@@ -7,6 +7,7 @@ const c = canvas.getContext('2d') //get API associate with 2d
 canvas.width = window.innerWidth //property of window object adjust width
 canvas.height = innerHeight 
 
+const scoreEl = document.getElementById('scoreEl')
 /* ======================
 CREATING CLASSES
 =========================*/
@@ -49,10 +50,63 @@ class Player {
     }
 }
 
+class Ghost {
+    constructor({
+        position, 
+        velocity, 
+        color='red'}){
+        this.position= position //position on the board 
+        this.velocity = velocity //player moving 
+        this.radius = 15 
+        this.color=color
+        this.prevCollisions=[]
+    }//draw pacman
+    draw(){
+        c.beginPath()
+        c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2) // radius is half a circle * 2 make its a whole
+        c.fillStyle=this.color
+        c.fill()
+        c.closePath()
+    }//determines how player move
+    update (){
+        this.draw()
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+    }
+}
+
+class Pellet {
+    constructor({position}){
+        this.position= position 
+        this.radius = 3 
+    }
+    draw(){
+        c.beginPath()
+        c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2) // radius is half a circle * 2 make its a whole
+        c.fillStyle='HotPink'
+        c.fill()
+        c.closePath()
+    }
+}
+
 /* ======================
 Global Var's
 =========================*/
 //layout of grid
+const pellets = []
+const boundaries = []
+const ghosts = [
+    new Ghost({
+        position:{
+            x:Boundary.width * 6 + Boundary.width/2, //move along x axis
+            y:Boundary.height + Boundary.height/2, //move along y axis
+        },
+        velocity:{
+            x:0,
+            y:0
+        },
+    })
+]
 const player = new Player({
     position:{
         x:Boundary.width + Boundary.width/2, //move along x axis
@@ -80,25 +134,26 @@ const keys = {
 }
 
 let lastKey = ""
+let score = 0
 
 const map = [
     ['1','-','-','-','-','-','-','-','-','-','2'],
-    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
-    ['|',' ','bl',' ','l','r',' ','l','r',' ','|'],
-    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
-    ['|',' ','t',' ',' ',' ',' ',' ','t',' ','|'],
-    ['|',' ','|',' ',' ',' ',' ',' ','|',' ','|'],
-    ['|',' ','b',' ',' ',' ',' ',' ','b',' ','|'],
-    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
-    ['|',' ','l','r',' ',' ',' ','l','r',' ','|'],
-    ['|',' ',' ',' ',' ','t',' ',' ',' ',' ','|'],
-    ['|',' ','bl',' ','l','^','r',' ','bl',' ','|'],
-    ['|',' ',' ',' ',' ',' ',' ',' ',' ',' ','|'],
+    ['|','.','.','.','.','.','.','.','.','.','|'],
+    ['|','.','bl','.','l','r','.','l','r','.','|'],
+    ['|','.','.','.','.','.','.','.','.','.','|'],
+    ['|','.','t','.',' ',' ',' ',' ','t','.','|'],
+    ['|','.','|','.',' ',' ',' ',' ','|','.','|'],
+    ['|','.','b','.',' ',' ',' ',' ','b','.','|'],
+    ['|','.','.','.',' ',' ',' ',' ','.','.','|'],
+    ['|','.','l','r','.','.','.','l','r','.','|'],
+    ['|','.','.','.','.','t','.','.','.','.','|'],
+    ['|','.','bl','.','l','^','r','.','bl','.','|'],
+    ['|','.','.','.','.','.','.','.','.','.','|'],
     ['4','-','-','-','-','-','-','-','-','-','3']
 ]
 
 
-const boundaries = []
+
 
 
 /* ======================
@@ -240,6 +295,14 @@ map.forEach((row, i) => {
                     image: createImage("./images/pipeConnectorRight.png")
                 }))
                 break
+                case '.': 
+                pellets.push(new Pellet({ 
+                    position:{
+                        x:  j * Boundary.width + Boundary.width/2, 
+                        y: i * Boundary.height + Boundary.height/2  
+                    }, 
+                }))
+                break
         }
     })
 })
@@ -330,6 +393,27 @@ function animate(){
         }
     }
 }
+//tocuh pellets here 
+for (let i=pellets.length - 1; 0 <i; i--){
+const pellet =pellets[i]
+pellet.draw()
+
+if(
+    Math.hypot(
+    pellet.position.x - player.position.x, 
+    pellet.position.y - player.position.y
+    ) < 
+    pellet.radius + player.radius 
+    ){
+    console.log('touching')
+    pellets.splice(i, 1)
+    score += 10
+    scoreEl.innerHTML=score
+}
+}
+
+
+
     boundaries.forEach((boundary) =>{
         boundary.draw()
         if (
@@ -345,7 +429,82 @@ function animate(){
     })
     player.update()
 
+    ghosts.forEach((ghost) =>{
+        ghost.update()
 
+        const collisions =[]
+        boundaries.forEach((boundary) => {
+            if (
+                !collisions.includes('right') &&
+                circleCollidesWithRectangle({
+                circle: {
+                    ...ghost,  
+                    velocity:{
+                        x:5, 
+                        y:0
+                    }
+                },
+                rectangle: boundary
+            })
+            ){
+                collisions.push('right')
+            }
+            if (
+                !collisions.includes('left') &&
+                circleCollidesWithRectangle({
+                circle: {
+                    ...ghost,  
+                    velocity:{
+                        x:-5, 
+                        y:0
+                    }
+                },
+                rectangle: boundary
+            })
+            ){
+                collisions.push('left')
+            }
+            if (
+                !collisions.includes('up') &&
+                circleCollidesWithRectangle({
+                circle: {
+                    ...ghost,  
+                    velocity:{
+                        x:0, 
+                        y:-5
+                    }
+                },
+                rectangle: boundary
+            })
+            ){
+                collisions.push('up')
+            }
+            if (
+                !collisions.includes('down') &&
+                circleCollidesWithRectangle({
+                circle: {
+                    ...ghost,  
+                    velocity:{
+                        x:0, 
+                        y:5
+                    }
+                },
+                rectangle: boundary
+            })
+            ){
+                collisions.push('down')
+            }
+        })
+
+        if(collisions.length > ghost.prevCollisions.length)
+        ghost.prevCollisions= collisions
+
+        if(JSON.stringify(collisions) !== JSON.stringify(ghost.prevCollisions)) {
+            // console.log("gog")
+            console.log(collisions)
+            console.log(ghost.prevCollisions)
+        }
+    })
 }
 
 animate()
