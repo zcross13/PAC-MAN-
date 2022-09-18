@@ -65,14 +65,14 @@ class Player {
 
         this.radians += this.openRate 
     }
+    die () {
+
+    }
 }
 
 class Ghost {
     static speed =2 
-    constructor({
-        position, 
-        velocity, 
-        color='red'}){
+    constructor({position, velocity, color='red'}){
         this.position= position //position on the board 
         this.velocity = velocity //player moving 
         this.radius = 15 
@@ -80,7 +80,7 @@ class Ghost {
         this.prevCollisions=[]
         this.speed = 2
         this.scared =false 
-    }//draw pacman
+    }
     draw(){
         c.beginPath()
         c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2) // radius is half a circle * 2 make its a whole
@@ -392,6 +392,7 @@ function circleCollidesWithRectangle({circle ,rectangle
             circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x -padding && circle.position.x - circle.radius + circle.velocity.x <=rectangle.position.x + rectangle.width +padding && circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y -padding 
             )
 }
+
 let animationId
 //animation loop
 function animate(){
