@@ -4,7 +4,8 @@ Pac-Man is a maze action video game.
 Remake of Chris Course Youtube video of how to create Pac-Man. 
 
 Goal:
-My goals is to create a Pac-Man game that I can expanded upon as I developed more knowledge in coding.
+My goals was to used Chris's tutorial as a walkthrough and skeleton that throughout my coding experience I can expand upon.
+
 
 Build Status:  
 Written in HTML5 + CSS + Javascript + Canvas 
@@ -14,14 +15,43 @@ You can play the game on all canvas-enabled browsers.
 
 Code Style:
 Global Variables
+
+Classes
+-Player(PacMan)
+-Boundaries
+-Ghost
+-Pellets
+-PowerUp
+
 Functions 
-Event Listerners  
+-Collision detection (line 386) - predicts and allow pacman to advoid hitting boundary is correct arrow key is pressed
+-Animation Function (line 396) - provide us the animation of pac man moving 
+-Map/Boundary Function  (line 237)- create the boundaries 
+-Create Image Function (line 231) - creates the images used for boundaries
+
+Event Listerners 
+-Arrow key up
+-Arrow key down
 
 Tech/Framework 
-
+spread syntax (...object)
+switch case statement 
+if else statement
 
 Features:
 Touch controls are up, down, left, and right arrow keys. 
+Power Pellet turn ghost blue and allow you to attack them 
+Player moves until they hit a boundary
+
+Challenges:
+Collision Function - Two days to finnally get it to work. This was by far the most diffcult concept to grasp. 
+
+
+Successes: 
+Gaining knowledge about canvas 
+Challenging myself to learn diffcult topics 
+Showed me how to build a project from scratch 
+
 
 
 Credits: 
@@ -30,9 +60,10 @@ Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp
 
 Future Feature I would like to add: 
 Flash on ghost as time expired 
-Respawn the ghost one they died
+Respawn the ghost once they died
 Give Pac-Man three lives 
-Have ghost spawn in cage 
+Have ghost spawn in a cage 
+Sprit
 
 
 

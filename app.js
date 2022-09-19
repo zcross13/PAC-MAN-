@@ -705,10 +705,10 @@ window.addEventListener('keydown', ({key}) => {
             lastKey="ArrowRight"
             break
         }
-    console.log(keys.R.pressed)
-    console.log(keys.D.pressed)
-    console.log(keys.U.pressed)
-    console.log(keys.L.pressed)
+    // console.log(keys.R.pressed)
+    // console.log(keys.D.pressed)
+    // console.log(keys.U.pressed)
+    // console.log(keys.L.pressed)
     })
 
     window.addEventListener('keyup', ({key}) => {
@@ -728,6 +728,6 @@ window.addEventListener('keydown', ({key}) => {
             case "ArrowRight": keys.R.pressed=false
             break
         }
-        console.log(keys.R.pressed)
-        console.log(keys.D.pressed)
+        // console.log(keys.R.pressed)
+        // console.log(keys.D.pressed)
 })
