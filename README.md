@@ -29,11 +29,8 @@ using the up, down, left, and right arrow key.
 
 It is my own opionion that Chris's video help you build a skeleton, but leaves you room to turn this into your own, once you develop a understanding. See some of the code block I found to be diffcult, but developed a deeper understanding using Chris video. 
 
-![Classes](imgs_readme/carbon.png)
-![Map](imgs_readme/map.png)
-![Switch Case to Create Map](imgs_readme/switchcase.png)
-![Player Collision with Boundaries](imgs_readme/Collision.png)
-![Ghost Collision with player](imgs_readme/Ghostcollison.png)
+![Classes](images/carbon.png)
+
 
 
 
