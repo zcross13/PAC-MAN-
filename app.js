@@ -383,16 +383,16 @@ map.forEach((row, i) => {
     })
 })
 
-function circleCollidesWithRectangle({circle ,rectangle 
-})
+function circleCollidesWithRectangle({circle ,rectangle})
     {
     const padding = Boundary.width/2 - circle.radius -1 
     return (
-        circle.position.y - circle.radius + circle.velocity.y <= rectangle.position.y + rectangle.height + padding && 
-            circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x -padding && circle.position.x - circle.radius + circle.velocity.x <=rectangle.position.x + rectangle.width +padding && circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y -padding 
+        circle.position.y - circle.radius + circle.velocity.y <= rectangle.position + rectangle.height + padding && 
+        circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x -padding && 
+        circle.position.x - circle.radius + circle.velocity.x <=rectangle.position.x + rectangle.width +padding && 
+        circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y -padding 
             )
-}
-
+    }
 let animationId
 //animation loop
 function animate(){

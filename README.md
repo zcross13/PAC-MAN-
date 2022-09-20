@@ -27,14 +27,28 @@ using the up, down, left, and right arrow key.
 
 ## Developer's Corner
 
-It is my own opionion that Chris's video help you build a 
+It is my own opionion that Chris's video help you build a skeleton, but leaves you room to turn this into your own, once you develop a understanding. See some of the code block I found to be diffcult, but developed a deeper understanding using Chris video. 
 
 ![Classes](images/carbon.png)
+![Map](images/map.png)
+![Switch Case to Create Map](images/switchcase.png)
+![Player Collision with Boundaries](images/Collision.png)
+![Ghost Collision with player](images/Ghostcollison.png)
 
 
-## And the show must continue ... 
 
-*
+## And the show must continue ... A test to myself and others 
+
+*Use sprite to create characters and pacman grid
+*Have ghost respawn in a cage area
+*Have ghost chase pacman 
+*Ghost shows scared face when blue (using sprite)
+*Have a next level options 
+*Have ghost velocity increase with each level 
+*Have Pac-Man animation when game over 
+*Append high score 
+
+
 
 
 
