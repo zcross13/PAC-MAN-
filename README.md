@@ -32,7 +32,7 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 ![Classes!](images/carbon.png)
 ![Map!](images/map.png)
 ![Switch Case to Create Map!](images/switchcase.png)
-![Player Collision with Boundaries!](images/Collision.png)
+![Player Collision with Boundaries!](images/collision.png)
 ![Ghost Collision with player!](images/Ghostcollison.png)
 
 
