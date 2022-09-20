@@ -29,7 +29,7 @@ using the up, down, left, and right arrow key.
 
 It is my own opionion that Chris's video help you build a 
 
-![Classes](./carbon.png)
+![alt!](carbon.png)
 
 
 ## And the show must continue ... 
