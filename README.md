@@ -1,8 +1,10 @@
-# **PAC-MAN :yellow-circle:**
+# **PAC-MAN :yellow_circle:**
+
+
 
 ## Pac-Man is a maze action video game. :joystick:
 
-This project is an example that was built following along with a Youtube content creator, name Chris. This project help provide detailed explaintion on how to do the following: 
+This project is an example that was built following a Youtube content creator, name Chris. This project allowed me to further explore the following topics:
 
 
 1. Object Oriented Programming 
@@ -17,17 +19,17 @@ Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp
 
 ## User Instructions 
 
-We all know and love Pac-Man, but here are the basic.
+We all know and love Pac-Man, but here are the basics.
 
-- Player moves the yellow circle around the screen
-using the up, down, left, and right arrow key.
-- Player must avoid the other color circle aka ghost!
-- If player eats the powerPellet (4) the ghost will turn blue for 5 second. The player can eat and remove the ghost from the game (under construction, indiviudal goal)
-- To win the game the player must eat all the pellets before and not collide with the ghost. If you do... you lose. 
+- :yellow_circle: moves around the screen
+using the up, down, left, and right arrow keys.
+- :yellow_circle: must avoid the other :ghost:  aka other color circles!
+- :yellow_circle:  can eat the PowerPellets (4) to scare the ghost for 5 seconds. :yellow_circle:  removes the :ghost:  when they eat them. (see 'show must continue for a challenge)
+- To win the game the :yellow_circle: must eat all the pellets before and not collide with the ghost. If you do... you lose. 
 
-## Developer's Corner :notebook:	
+## Developer's Corner :notebook:    
 
-It is my own opionion that Chris's video help you build a skeleton, but leaves you room to turn this into your own, once you develop a understanding. See some of the code block I found to be diffcult, but developed a deeper understanding using Chris video. 
+Chris's video helps me build a skeleton to expand on and taught me some new skills along the way. See some of the code blocks, below that I found to be difficult. 
 
 ## Classes
 
@@ -47,20 +49,20 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 
 ## And the show must continue ... A test to myself and others 
 
-- :pushpin:	Use sprite to create characters and pacman grid
-- :pushpin:	Have ghost respawn in a cage area
-- :pushpin:	Have ghost chase pacman 
-- :pushpin:	Ghost shows scared face when blue (using sprite)
-- :pushpin:	Have a next level options 
-- :pushpin:	Have ghost velocity increase with each level 
-- :pushpin:	Have Pac-Man animation when game over 
-- :pushpin:	Append high score 
+- :pushpin: Use sprite to create characters and Pacman grid
+- :pushpin: Have ghost respawn in a caged area
+- :pushpin: Have ghost chase pacman 
+- :pushpin: Ghost shows a scared face when blue (using sprite)
+- :pushpin: Have a next level options 
+- :pushpin: Have ghost velocity increase with each level 
+- :pushpin: Have Pac-Man animation when the game over 
+- :pushpin: Append high score 
 
 
 
 
 
-## Resources :scroll:	
+## Resources :scroll:   
 - [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [Switch Case Conditional](https://www.w3schools.com/js/js_switch.asp)
 - [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
@@ -69,7 +71,7 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 - [Sprite for PacMan](https://spritedatabase.net/file/15069)
 
 
-### Read me resources :scroll:	
+### Read me resources :scroll:  
 - [Markdown CheatSheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - [Three ways to add images to your Readme](https://www.seancdavis.com/posts/three-ways-to-add-image-to-github-readme/)
 - [Carbon](https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=)
@@ -80,12 +82,9 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 
 ## Contributions:
 
-**:fire:Third Degree Burns:fire:**: free threapists!! :heart:
+**:fire:Third Degree Burns:fire:**: free therapists!! :heart:
 
 
-- General Assembly's Instructional Team :clap:	
-- Chris Course on Youtube : https://www.youtube.com/c/ChrisCourses :clap:	
-
-
-
+- General Assembly's Instructional Team :clap:  
+- [Chris Course on Youtube]: (https://www.youtube.com/c/ChrisCourses) :clap: 
 
