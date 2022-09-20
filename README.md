@@ -16,7 +16,6 @@ This project is an example that was built following a Youtube content creator, n
 5. HTML 5 Canvas
 
 
-
 ## Watch Chris's Youtube Video 
 Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp2yz6-pwhQuPlIDV_mjA&start_radio=1&rv=5IMXpp3rohQ&t=18
 
@@ -24,15 +23,15 @@ Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp
 
 We all know and love Pac-Man, but here are the basics.
 
-- :yellow_circle: moves around the screen
+- :yellow_circle: (the player) moves around the screen
 using the up, down, left, and right arrow keys.
-- :yellow_circle: must avoid the other :ghost:  aka other color circles!
-- :yellow_circle:  can eat the PowerPellets (4) to scare the ghost for 5 seconds. :yellow_circle:  removes the :ghost:  when they eat them. (see 'show must continue for a challenge)
-- To win the game the :yellow_circle: must eat all the pellets before and not collide with the ghost. If you do... you lose. 
+- :yellow_circle: must avoid the :ghost: aka other color circles!
+- :yellow_circle:  can eat the PowerPellets (4) to scare the ghost for 5 seconds. :yellow_circle:  removes the :ghost:  when they eat them. (see the *show must continue* section for a challenge)
+- To win the game the :yellow_circle: must eat all the pellets. But Beware of the :ghost:. If they catch :yellow_circle:, its GAME OVER... 
 
 ## Developer's Corner :notebook:    
 
-Chris's video helps me build a skeleton to expand on and taught me some new skills along the way. See some of the code blocks, below that I found to be difficult. 
+Chris's video helps me build a skeleton that I now can expand upon. See some of the code blocks, below that I found to be difficult and fun!  
 
 ## Classes
 
