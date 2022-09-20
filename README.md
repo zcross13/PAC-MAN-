@@ -1,10 +1,10 @@
-# **PAC-MAN :yellow_circle:**
+# **PAC-MAN :joystick:**
 
+## ***Site Link*** *https://zcross13.github.io/pacman/*
 
+### Pac-Man is a maze action video game. 
 
-## Pac-Man is a maze action video game. :joystick:
-
-This project is an example that was built following a Youtube content creator, name Chris. This project allowed me to further explore the following topics:
+This project is an example that was built following a Youtube content creator, name Chris. This project allowed me to learn and demostrate the following topics:
 
 
 1. Object Oriented Programming 
@@ -12,6 +12,7 @@ This project is an example that was built following a Youtube content creator, n
 3. For loops 
 4. Arrays 
 5. HTML 5 Canvas
+
 
 
 ## Watch Chris's Youtube Video 
