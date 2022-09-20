@@ -29,7 +29,7 @@ using the up, down, left, and right arrow key.
 
 It is my own opionion that Chris's video help you build a skeleton, but leaves you room to turn this into your own, once you develop a understanding. See some of the code block I found to be diffcult, but developed a deeper understanding using Chris video. 
 
-![Classes](images/carbon.png)
+![Classes!](images/carbon.png)
 
 
 
