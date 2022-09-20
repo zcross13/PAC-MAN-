@@ -1,7 +1,7 @@
 # **PAC-MAN**
----
+
 ## Pac-Man is a maze action video game. 
----
+
 This project is an example that was built following along with a Youtube content creator, name Chris. This project help provide detailed explaintion on how to do the following: 
 
 
@@ -11,7 +11,7 @@ This project is an example that was built following along with a Youtube content
 4. Arrays 
 5. HTML 5 Canvas
 
----
+
 ## Watch Chris's Youtube Video 
 Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp2yz6-pwhQuPlIDV_mjA&start_radio=1&rv=5IMXpp3rohQ&t=18
 
@@ -32,10 +32,12 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 ## Classes
 
 ![Classes!](images/carbon.png)
+---
 
 ## Grid
 ![Map!](images/map.png)
 ![Switch Case to Create Map!](images/switchcase.png)
+---
 
 ## Collision Detect
 ![Player Collision with Boundaries!](images/collision.png)
@@ -59,25 +61,25 @@ It is my own opionion that Chris's video help you build a skeleton, but leaves y
 
 
 ## Resources 
-- [Spread Syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-- [Switch Case Conditional]: https://www.w3schools.com/js/js_switch.asp
-- [Canvas]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-- [Circular Motion]: https://www.youtube.com/watch?v=raXW5J1Te7Y&t=288s
-- [How to Detect Rectangle Collision]: https://www.youtube.com/watch?v=_MyPLZSGS3s&t=395s
-- [Sprite for PacMan]: https://spritedatabase.net/file/15069
+- [Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [Switch Case Conditional](https://www.w3schools.com/js/js_switch.asp)
+- [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+- [Circular Motion](https://www.youtube.com/watch?v=raXW5J1Te7Y&t=288s)
+- [How to Detect Rectangle Collision](https://www.youtube.com/watch?v=_MyPLZSGS3s&t=395s)
+- [Sprite for PacMan](https://spritedatabase.net/file/15069)
 
 
 ### Read me resources 
-- [Markdown CheatSheet]: https://www.markdownguide.org/cheat-sheet/
-- [Three ways to add images to your Readme]: https://www.seancdavis.com/posts/three-ways-to-add-image-to-github-readme/
-- [Carbon]: https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=
+- [Markdown CheatSheet](https://www.markdownguide.org/cheat-sheet/)
+- [Three ways to add images to your Readme](https://www.seancdavis.com/posts/three-ways-to-add-image-to-github-readme/)
+- [Carbon](https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=)
 
 
 
 
 ## Contributions:
 
-### **Third Degree Burns**: free threapists!!
+**Third Degree Burns**: free threapists!!
 
 
 - General Assembly's Instructional Team 
