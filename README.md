@@ -1,5 +1,7 @@
 # **PAC-MAN :joystick:**
 
+![PACMAN!](images/pacman.png)
+
 ## ***Site Link*** *https://zcross13.github.io/pacman/*
 
 ### Pac-Man is a maze action video game. 
