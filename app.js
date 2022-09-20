@@ -490,7 +490,7 @@ for (let i=powerUps.length - 1; 0 <= i; i--){
                 ghost.scared=true 
                 setTimeout(() => {
                     ghost.scared=false 
-                }, 5000)
+                }, 6000)
             })
         }
     }
@@ -506,12 +506,11 @@ if(
     ) < 
     ghost.radius + player.radius 
     ) {
-
         if(ghost.scared){
             ghosts.splice(i,1)
         }else{
         cancelAnimationFrame(animationId)
-        console.log('you lose')
+        alert('you lose')
         }
     }
 }
@@ -536,7 +535,7 @@ if(
 
 //win conditions 
 if(pellets.length === 0){
-    console.log('you win')
+    alert('you win')
     cancelAnimationFrame(animationId)
 }
 

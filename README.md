@@ -1,69 +1,45 @@
-PAC-MAN:
-Pac-Man is a maze action video game. 
+# **PAC-MAN**
 
-Remake of Chris Course Youtube video of how to create Pac-Man. 
+## Pac-Man is a maze action video game. 
 
-Goal:
-My goals was to used Chris's tutorial as a walkthrough and skeleton that throughout my coding experience I can expand upon.
+This project is an example that was built following along with a Youtube content creator, name Chris. This project help provide detailed explaintion on how to do the following: 
 
 
-Build Status:  
-Written in HTML5 + CSS + Javascript + Canvas 
-
-Play:
-You can play the game on all canvas-enabled browsers. 
-
-Code Style:
-Global Variables
-
-Classes
--Player(PacMan)
--Boundaries
--Ghost
--Pellets
--PowerUp
-
-Functions 
--Collision detection (line 386) - predicts and allow pacman to advoid hitting boundary is correct arrow key is pressed
--Animation Function (line 396) - provide us the animation of pac man moving 
--Map/Boundary Function  (line 237)- create the boundaries 
--Create Image Function (line 231) - creates the images used for boundaries
-
-Event Listerners 
--Arrow key up
--Arrow key down
-
-Tech/Framework 
-spread syntax (...object)
-switch case statement 
-if else statement
-
-Features:
-Touch controls are up, down, left, and right arrow keys. 
-Power Pellet turn ghost blue and allow you to attack them 
-Player moves until they hit a boundary
-
-Challenges:
-Collision Function - Two days to finnally get it to work. This was by far the most diffcult concept to grasp. 
+*Object Oriented Programming 
+*Collision Detection 
+*For loops 
+*Arrays 
+*HTML 5 Canvas
 
 
-Successes: 
-Gaining knowledge about canvas 
-Challenging myself to learn diffcult topics 
-Showed me how to build a project from scratch 
-
-
-
-Credits: 
+## Watch Chris's Youtube Video 
 Chris Course Youtube: https://www.youtube.com/watch?v=5IMXpp3rohQ&list=RDCMUC9Yp2yz6-pwhQuPlIDV_mjA&start_radio=1&rv=5IMXpp3rohQ&t=18
 
+## User Instructions 
 
-Future Feature I would like to add: 
-Flash on ghost as time expired 
-Respawn the ghost once they died
-Give Pac-Man three lives 
-Have ghost spawn in a cage 
-Sprit
+We all know and love Pac-Man, but here are the basic.
+
+*Player moves the yellow circle around the screen
+using the up, down, left, and right arrow key.
+*Player must avoid the other color circle aka ghost!
+*If player eats the powerPellet (4) the ghost will turn blue for 5 second. The player can eat and remove the ghost from the game (under construction, indiviudal goal)
+*To win the game the player must eat all the pellets before and not collide with the ghost. If you do... you lose. 
+
+## Developer's Corner
+
+It is my own opionion that Chris's video help you build a 
+
+![Classes](./carbon.jpg)
+
+
+## And the show must continue ... 
+
+*
+
+
+
+## Resources 
+
 
 
 
